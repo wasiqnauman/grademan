@@ -24,7 +24,7 @@ def createMsg(to, frm, content, *args):
     msg['From'] = frm
     msg['Subject'] = 'Grades'
     msg.set_content(content)
-    if args:   # check if CC list is provided as a paramater
+    if args:
         msg['CC'] = args[0]
     return msg
 
@@ -34,13 +34,13 @@ def initSMTP():
     ! not sure if this a good practice, let me know what you think !
     """
 
-    mail = smtplib.SMTP('smtp.gmail.com', 587)   # connect to gmail SMTP server
-    code = mail.ehlo()[0]   # get the return code
+    mail = smtplib.SMTP('smtp.gmail.com', 587)
+    code = mail.ehlo()[0]
     if code == 250:
         print("Connection is successful!")
     else:
         print(f"Something went wrong! Error: {code}")
-    mail.starttls()   # establish secure TLS encryption
+    mail.starttls()
     email = input('Email: ')
     passwd = getpass()   # Does not work on IDLE, use the terminal!
     mail.login(email, passwd)
