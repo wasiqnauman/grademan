@@ -49,16 +49,18 @@ def initSMTP():
 
 def main():
     filename = 'emails.xlxs'
-    # to = getEmail(filename)
+    to = getEmail(filename)
     frm = 'test@example.com'
-    name = 'Person'
+    name = 'Person'  # test
     g = [100,100,100]
+
     msgContent = \
     f"""Hi {name},
     Your grades for this semester uptil now are as follows
     {g[0]} {g[1]} {g[2]}
 Love,
 Grademan"""
+
     print(msgContent)
     mail = initSMTP()
 
